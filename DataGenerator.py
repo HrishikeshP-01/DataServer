@@ -1,4 +1,5 @@
 from csv import writer
+import random
 
 def MakeData(filename, n):
     currentTime=0
@@ -21,13 +22,17 @@ def MakeData(filename, n):
     file.close()
 
 def generateFlexData():
-    return "30"
+    x = random.randint(0,10)
+    if(x==3):
+        return "3"
+    else:
+        return str(random.randint(0,1))
 
 def generateTempData():
-    return "90"
+    return str(round(random.uniform(36.1,37.2),1))
 
 def generatePulseData():
-    return "78"
+    return str(random.randint(78,83))
 
 def addCols():
     rowData=["Time","Flex","Temp","Pulse"]

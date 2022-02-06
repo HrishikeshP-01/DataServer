@@ -14,10 +14,16 @@ def makeScatterPlot(df, xAxis, yAxis, opFileName):
     df.plot(x=xAxis, y=yAxis, style='o')
     plt.savefig(opFileName)
 
-def makeHistogram(df, xAxis, yAxis, opFileName):
-    df.hist()
-    plt.show()
+def makeHistogram(df, Axis, opFileName):
+    df[Axis].hist()
     plt.savefig(opFileName)
 
-df = getDF("x.csv")
-makeHistogram(df, "Time", "Flex", "z.png")
+df = getDF("data.csv")
+makeHistogram(df,"Flex", "FlexHist.png")
+makeLinePlot(df,"Time","Flex","FlexPlot.png")
+makeHistogram(df, "Temp", "TempHist.png")
+makeLinePlot(df,"Time","Temp","TempPlot.png")
+makeHistogram(df, "Pulse", "PulseHist.png")
+makeLinePlot(df,"Time","Pulse","PulsePlot.png")
+df.hist()
+plt.savefig("Overview.png")
